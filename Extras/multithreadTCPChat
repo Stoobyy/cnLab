@@ -1,0 +1,81 @@
+//server
+
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class TCPServer {
+    public static void main(String[] args) throws Exception {
+        ServerSocket serverSocket = new ServerSocket(5000);
+        Socket socket = serverSocket.accept();
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+        Scanner sc = new Scanner(System.in);
+
+        Thread receiveThread = new Thread(() -> {
+            try {
+                String msg;
+                while ((msg = in.readLine()) != null) {
+                    if (msg.equalsIgnoreCase("exit")) break;
+                    System.out.println("Client: " + msg);
+                }
+            } catch (Exception e) {}
+        });
+
+        Thread sendThread = new Thread(() -> {
+            try {
+                String reply;
+                while (true) {
+                    reply = sc.nextLine();
+                    out.println(reply);
+                    if (reply.equalsIgnoreCase("exit")) break;
+                }
+            } catch (Exception e) {}
+        });
+
+        receiveThread.start();
+        sendThread.start();
+    }
+}
+
+
+//client
+
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+
+public class TCPClient {
+    public static void main(String[] args) throws Exception {
+        Socket socket = new Socket("localhost", 5000);
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+        Scanner sc = new Scanner(System.in);
+
+        Thread receiveThread = new Thread(() -> {
+            try {
+                String msg;
+                while ((msg = in.readLine()) != null) {
+                    if (msg.equalsIgnoreCase("exit")) break;
+                    System.out.println("Server: " + msg);
+                }
+            } catch (Exception e) {}
+        });
+
+        Thread sendThread = new Thread(() -> {
+            try {
+                String msg;
+                while (true) {
+                    msg = sc.nextLine();
+                    out.println(msg);
+                    if (msg.equalsIgnoreCase("exit")) break;
+                }
+            } catch (Exception e) {}
+        });
+
+        receiveThread.start();
+        sendThread.start();
+    }
+}

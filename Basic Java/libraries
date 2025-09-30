@@ -1,0 +1,49 @@
+//math functions
+public class MathDemo {
+    public static void main(String[] args) {
+        System.out.println(Math.sqrt(16));     // 4.0
+        System.out.println(Math.pow(2, 3));    // 8.0
+        System.out.println(Math.max(10, 20));  // 20
+        System.out.println(Math.abs(-5));      // 5
+    }
+}
+
+
+//scanner
+
+import java.util.Scanner;
+
+public class ScannerDemo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+        System.out.println("You entered: " + n);
+        sc.close();
+    }
+}
+
+
+//string functions
+public class StringDemo {
+    public static void main(String[] args) {
+        String s = "Hello World";
+        System.out.println(s.length());           // 11
+        System.out.println(s.toUpperCase());      // HELLO WORLD
+        System.out.println(s.substring(0, 5));    // Hello
+        System.out.println(s.replace("World", "Java")); // Hello Java
+    }
+}
+
+
+//random module
+import java.util.Random;
+
+public class RandomDemo {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        System.out.println(rand.nextInt(10));  // 0–9
+        System.out.println(rand.nextDouble()); // 0.0–1.0
+        System.out.println(rand.nextBoolean()); // true/false
+    }
+}

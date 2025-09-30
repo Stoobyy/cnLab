@@ -1,0 +1,22 @@
+//If statements
+int x = 10;
+
+if (x > 5) {
+    System.out.println("x is greater than 5");
+} else if (x == 5) {
+    System.out.println("x equals 5");
+} else {
+    System.out.println("x is less than 5");
+}
+
+
+//switch
+int day = 3;
+
+switch (day) {
+    case 1: System.out.println("Monday"); break;
+    case 2: System.out.println("Tuesday"); break;
+    case 3: System.out.println("Wednesday"); break;
+    default: System.out.println("Other day");
+}
+
