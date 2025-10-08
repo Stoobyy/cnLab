@@ -71,8 +71,6 @@ public class stupidLeakyBucket {
                                 + " bytes from p" + (fileIndex + 1)
                                 + " | total discarded = " + discarded);
                     }
-                } else {
-                    System.out.println("p" + (fileIndex + 1) + " finished, skipping...");
                 }
 
                 second++;
