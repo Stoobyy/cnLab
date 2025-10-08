@@ -9,7 +9,6 @@ public class stupidLeakyBucket {
 
     // Each file has a specific size
     private int[] files = {10, 8, 12, 5}; // p1, p2, p3, p4
-    private int[] sentPackets = {0, 0, 0, 0}; // Track how much each sent
 
     private int bucket = 0;
     private int discarded = 0;
@@ -59,7 +58,6 @@ public class stupidLeakyBucket {
 
                 if (files[fileIndex] > 0) {
                     int actualFill = Math.min(toFill, files[fileIndex]);
-                    sentPackets[fileIndex] += actualFill;
 
                     if (bucket + actualFill <= BUCKET_CAPACITY) {
                         bucket += actualFill;

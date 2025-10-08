@@ -48,9 +48,9 @@ public class leakyBucket {
 
                 if (remainingFile > 0) {
                     int toFill = Math.min(FILL_RATE, remainingFile);
-                    remainingFile -= toFill;
 
                     if (bucket + toFill <= BUCKET_CAPACITY) {
+                        remainingFile -= toFill;
                         bucket += toFill;
                         System.out.println("Filled " + toFill + " bytes, bucket = " + bucket +
                                            ", remaining file = " + remainingFile);

@@ -30,7 +30,7 @@ public class distanceVector {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
                     for (int k = 0; k < n; k++) {
-                        if (dist[i][k] != INF && dist[k][j] != INF) {
+                        if (dist[i][k] != INF && dist[k][j] != INF) { // imp ik and kj
                             if (dist[i][j] > dist[i][k] + dist[k][j]) {
                                 dist[i][j] = dist[i][k] + dist[k][j];
                                 nextHop[i][j] = nextHop[i][k];
@@ -48,7 +48,7 @@ public class distanceVector {
             System.out.println("Dest\tCost\tNextHop");
             for (int j = 0; j < n; j++) {
                 if (i == j) continue;
-                String nh = (nextHop[i][j] == -1) ? "-" : String.valueOf(nextHop[i][j]);
+                String nh = (nextHop[i][j] == -1) ? "-" : String.valueOf(nextHop[i][j]); //string valueof
                 if (dist[i][j] == INF)
                     System.out.println(j + "\t∞\t" + nh);
                 else
