@@ -33,7 +33,7 @@ public class stupidLeakyBucket {
                 // Stop when all files done and bucket empty
                 if (allFilesDone() && bucket == 0) {
                     System.out.println("\n✅ All files transmitted completely!");
-                    System.out.println("Total discarded = " + discarded + " bytes");
+                    System.out.println("Total overflowed = " + discarded + " bytes");
                     break;
                 }
 
@@ -67,9 +67,9 @@ public class stupidLeakyBucket {
                                 + " | remaining p" + (fileIndex + 1) + " = " + files[fileIndex]);
                     } else {
                         discarded += actualFill;
-                        System.out.println("❌ Bucket overflow! Discarded " + actualFill
+                        System.out.println("❌ Bucket overflow! Overflow " + actualFill
                                 + " bytes from p" + (fileIndex + 1)
-                                + " | total discarded = " + discarded);
+                                + " | total overflowed (not discarded) = " + discarded);
                     }
                 }
 
