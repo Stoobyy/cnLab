@@ -51,7 +51,7 @@ class ClientHandler extends Thread {
 
             // --- Command loop ---
             String command;
-            while ((command = in.readLine()) != null) {
+            while ((command = in.readLine()) != null) { //null when client dc
                 System.out.println("Received: " + command);
 
                 if (command.startsWith("UPLOAD")) {
